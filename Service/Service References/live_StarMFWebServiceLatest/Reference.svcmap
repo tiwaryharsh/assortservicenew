@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f31a99f3-ff14-436a-83bd-855da0730c0d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://www.bsestarmf.in/StarMFWebService/StarMFWebService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="StarMFWebService.xsd" MetadataType="Schema" ID="a77a6fde-18e6-4460-ba68-7d0dcf902ffd" SourceId="1" SourceUrl="http://www.bsestarmf.in/StarMFWebService/StarMFWebService.svc?xsd=xsd0" />
+    <MetadataFile FileName="StarMFWebService.wsdl" MetadataType="Wsdl" ID="e814cb19-5a5d-4eda-a557-08ccee96579f" SourceId="1" SourceUrl="http://www.bsestarmf.in/StarMFWebService/StarMFWebService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="StarMFWebService.disco" MetadataType="Disco" ID="b23b3861-7019-42e3-b290-76a0f678d05c" SourceId="1" SourceUrl="http://www.bsestarmf.in/StarMFWebService/StarMFWebService.svc?disco" />
+    <MetadataFile FileName="StarMFWebService1.wsdl" MetadataType="Wsdl" ID="f849bad8-74e0-4733-b632-b8d80d534dd9" SourceId="1" SourceUrl="http://www.bsestarmf.in/StarMFWebService/StarMFWebService.svc?wsdl" />
+    <MetadataFile FileName="StarMFWebService1.xsd" MetadataType="Schema" ID="a7c1a111-073d-4aee-a309-b0953c93a261" SourceId="1" SourceUrl="http://www.bsestarmf.in/StarMFWebService/StarMFWebService.svc?xsd=xsd1" />
+    <MetadataFile FileName="StarMFWebService2.xsd" MetadataType="Schema" ID="9f9cdb50-9985-4b55-a405-ec2008282e17" SourceId="1" SourceUrl="http://www.bsestarmf.in/StarMFWebService/StarMFWebService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

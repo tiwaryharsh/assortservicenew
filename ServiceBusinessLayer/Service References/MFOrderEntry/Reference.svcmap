@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="41532332-c97f-442f-a5ef-43d070d81991" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://bsestarmfdemo.bseindia.com/MFOrderEntry/MFOrder.svc " Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MFOrder.wsdl" MetadataType="Wsdl" ID="59d8a714-e14a-44c2-8ef5-ca7b461bf7cb" SourceId="1" SourceUrl="http://bsestarmfdemo.bseindia.com/MFOrderEntry/MFOrder.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="MFOrder.xsd" MetadataType="Schema" ID="fbbe4c14-fde5-4c11-9c6b-87c8aed30297" SourceId="1" SourceUrl="http://bsestarmfdemo.bseindia.com/MFOrderEntry/MFOrder.svc?xsd=xsd0" />
+    <MetadataFile FileName="MFOrder1.wsdl" MetadataType="Wsdl" ID="003a9293-daec-4a3e-832a-529a8580d3a0" SourceId="1" SourceUrl="http://bsestarmfdemo.bseindia.com/MFOrderEntry/MFOrder.svc?wsdl" />
+    <MetadataFile FileName="MFOrder.disco" MetadataType="Disco" ID="cb64b81f-4b67-4ce3-b32b-8e21f699cb21" SourceId="1" SourceUrl="http://bsestarmfdemo.bseindia.com/MFOrderEntry/MFOrder.svc?disco" />
+    <MetadataFile FileName="MFOrder1.xsd" MetadataType="Schema" ID="41b1e447-8d1e-43ae-8010-e1ba6c7123d3" SourceId="1" SourceUrl="http://bsestarmfdemo.bseindia.com/MFOrderEntry/MFOrder.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

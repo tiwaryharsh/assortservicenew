@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://bsestarmfdemo.bseindia.com/2016/01/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://bsestarmfdemo.bseindia.com/2016/01/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://bsestarmfdemo.bseindia.com/2016/01/Imports">
+      <xsd:import schemaLocation="http://bsestarmfdemo.bseindia.com/MFUploadService/MFUploadService.svc?xsd=xsd0" namespace="http://bsestarmfdemo.bseindia.com/2016/01/" />
+      <xsd:import schemaLocation="http://bsestarmfdemo.bseindia.com/MFUploadService/MFUploadService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMFUploadService_getPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPassword" />
+  </wsdl:message>
+  <wsdl:message name="IMFUploadService_getPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMFUploadService_MFAPI_InputMessage">
+    <wsdl:part name="parameters" element="tns:MFAPI" />
+  </wsdl:message>
+  <wsdl:message name="IMFUploadService_MFAPI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MFAPIResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMFUploadService">
+    <wsdl:operation name="getPassword">
+      <wsdl:input wsaw:Action="http://bsestarmfdemo.bseindia.com/2016/01/IMFUploadService/getPassword" message="tns:IMFUploadService_getPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://bsestarmfdemo.bseindia.com/2016/01/IMFUploadService/getPasswordResponse" message="tns:IMFUploadService_getPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MFAPI">
+      <wsdl:input wsaw:Action="http://bsestarmfdemo.bseindia.com/2016/01/IMFUploadService/MFAPI" message="tns:IMFUploadService_MFAPI_InputMessage" />
+      <wsdl:output wsaw:Action="http://bsestarmfdemo.bseindia.com/2016/01/IMFUploadService/MFAPIResponse" message="tns:IMFUploadService_MFAPI_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

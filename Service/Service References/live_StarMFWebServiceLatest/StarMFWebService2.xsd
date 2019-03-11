@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/StarMFWebService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/StarMFWebService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="PasswordRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MemberId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PasswordRequest" nillable="true" type="tns:PasswordRequest" />
+  <xs:complexType name="Response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Filler" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Response" nillable="true" type="tns:Response" />
+  <xs:complexType name="MFAPIRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EncryptedPassword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Flag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="param" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MFAPIRequest" nillable="true" type="tns:MFAPIRequest" />
+</xs:schema>

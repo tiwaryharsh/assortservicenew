@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://bsestarmf.in/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://bsestarmf.in/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://bsestarmf.in/Imports">
+      <xsd:import schemaLocation="http://bsestarmfdemo.bseindia.com/MFOrderEntry/MFOrder.svc?xsd=xsd0" namespace="http://bsestarmf.in/" />
+      <xsd:import schemaLocation="http://bsestarmfdemo.bseindia.com/MFOrderEntry/MFOrder.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="MFOrderEntry_getPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPassword" />
+  </wsdl:message>
+  <wsdl:message name="MFOrderEntry_getPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="MFOrderEntry_orderEntryParam_InputMessage">
+    <wsdl:part name="parameters" element="tns:orderEntryParam" />
+  </wsdl:message>
+  <wsdl:message name="MFOrderEntry_orderEntryParam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:orderEntryParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="MFOrderEntry_spreadOrderEntryParam_InputMessage">
+    <wsdl:part name="parameters" element="tns:spreadOrderEntryParam" />
+  </wsdl:message>
+  <wsdl:message name="MFOrderEntry_spreadOrderEntryParam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:spreadOrderEntryParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="MFOrderEntry_switchOrderEntryParam_InputMessage">
+    <wsdl:part name="parameters" element="tns:switchOrderEntryParam" />
+  </wsdl:message>
+  <wsdl:message name="MFOrderEntry_switchOrderEntryParam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:switchOrderEntryParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="MFOrderEntry_sipOrderEntryParam_InputMessage">
+    <wsdl:part name="parameters" element="tns:sipOrderEntryParam" />
+  </wsdl:message>
+  <wsdl:message name="MFOrderEntry_sipOrderEntryParam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sipOrderEntryParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="MFOrderEntry_xsipOrderEntryParam_InputMessage">
+    <wsdl:part name="parameters" element="tns:xsipOrderEntryParam" />
+  </wsdl:message>
+  <wsdl:message name="MFOrderEntry_xsipOrderEntryParam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:xsipOrderEntryParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="MFOrderEntry_Decrypt_InputMessage">
+    <wsdl:part name="parameters" element="tns:Decrypt" />
+  </wsdl:message>
+  <wsdl:message name="MFOrderEntry_Decrypt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DecryptResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MFOrderEntry">
+    <wsdl:operation name="getPassword">
+      <wsdl:input wsaw:Action="http://bsestarmf.in/MFOrderEntry/getPassword" message="tns:MFOrderEntry_getPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://bsestarmf.in/MFOrderEntry/getPasswordResponse" message="tns:MFOrderEntry_getPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="orderEntryParam">
+      <wsdl:input wsaw:Action="http://bsestarmf.in/MFOrderEntry/orderEntryParam" message="tns:MFOrderEntry_orderEntryParam_InputMessage" />
+      <wsdl:output wsaw:Action="http://bsestarmf.in/MFOrderEntry/orderEntryParamResponse" message="tns:MFOrderEntry_orderEntryParam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="spreadOrderEntryParam">
+      <wsdl:input wsaw:Action="http://bsestarmf.in/MFOrderEntry/spreadOrderEntryParam" message="tns:MFOrderEntry_spreadOrderEntryParam_InputMessage" />
+      <wsdl:output wsaw:Action="http://bsestarmf.in/MFOrderEntry/spreadOrderEntryParamResponse" message="tns:MFOrderEntry_spreadOrderEntryParam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="switchOrderEntryParam">
+      <wsdl:input wsaw:Action="http://bsestarmf.in/MFOrderEntry/switchOrderEntryParam" message="tns:MFOrderEntry_switchOrderEntryParam_InputMessage" />
+      <wsdl:output wsaw:Action="http://bsestarmf.in/MFOrderEntry/switchOrderEntryParamResponse" message="tns:MFOrderEntry_switchOrderEntryParam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sipOrderEntryParam">
+      <wsdl:input wsaw:Action="http://bsestarmf.in/MFOrderEntry/sipOrderEntryParam" message="tns:MFOrderEntry_sipOrderEntryParam_InputMessage" />
+      <wsdl:output wsaw:Action="http://bsestarmf.in/MFOrderEntry/sipOrderEntryParamResponse" message="tns:MFOrderEntry_sipOrderEntryParam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="xsipOrderEntryParam">
+      <wsdl:input wsaw:Action="http://bsestarmf.in/MFOrderEntry/xsipOrderEntryParam" message="tns:MFOrderEntry_xsipOrderEntryParam_InputMessage" />
+      <wsdl:output wsaw:Action="http://bsestarmf.in/MFOrderEntry/xsipOrderEntryParamResponse" message="tns:MFOrderEntry_xsipOrderEntryParam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Decrypt">
+      <wsdl:input wsaw:Action="http://bsestarmf.in/MFOrderEntry/Decrypt" message="tns:MFOrderEntry_Decrypt_InputMessage" />
+      <wsdl:output wsaw:Action="http://bsestarmf.in/MFOrderEntry/DecryptResponse" message="tns:MFOrderEntry_Decrypt_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

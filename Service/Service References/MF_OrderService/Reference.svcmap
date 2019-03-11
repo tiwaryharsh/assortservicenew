@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="72e1f897-b85b-4cff-93ec-cd7d27e17dba" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://bsestarmf.in/MFOrderEntry/MFOrder.svc " Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MFOrder2.wsdl" MetadataType="Wsdl" ID="835be8ee-10a9-4b29-82e2-7428eb499491" SourceId="1" SourceUrl="http://bsestarmf.in/MFOrderEntry/MFOrder.svc?wsdl" />
+    <MetadataFile FileName="MFOrder2.xsd" MetadataType="Schema" ID="70213570-2f3b-4d7a-8efc-eebd1946484a" SourceId="1" SourceUrl="http://bsestarmf.in/MFOrderEntry/MFOrder.svc?xsd=xsd0" />
+    <MetadataFile FileName="MFOrder21.xsd" MetadataType="Schema" ID="733d6ddb-13c1-41a1-a8d7-5037976a6edf" SourceId="1" SourceUrl="http://bsestarmf.in/MFOrderEntry/MFOrder.svc?xsd=xsd1" />
+    <MetadataFile FileName="MFOrder1.disco" MetadataType="Disco" ID="a50d19aa-4e51-44c8-b153-79e83b8bb2ac" SourceId="1" SourceUrl="http://bsestarmf.in/MFOrderEntry/MFOrder.svc?disco" />
+    <MetadataFile FileName="MFOrder21.wsdl" MetadataType="Wsdl" ID="d30aa606-a5d7-44a9-92fc-7a229228cd10" SourceId="1" SourceUrl="http://bsestarmf.in/MFOrderEntry/MFOrder.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
