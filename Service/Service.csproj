@@ -150,6 +150,7 @@
     <None Include="Properties\PublishProfiles\assortservice1 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\assortservicenew.pubxml" />
     <None Include="Properties\PublishProfiles\assortWebService.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\InvestorFundaService.pubxml" />
     <None Include="Properties\PublishProfiles\InvestorFunda_Publish.pubxml" />
     <None Include="Properties\PublishProfiles\Service.pubxml" />

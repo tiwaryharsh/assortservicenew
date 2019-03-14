@@ -615,7 +615,7 @@ namespace ServiceDataAccessLayer
                     DASHDB.AddInParameter(DbCommand, "AssortClientManager2Name", DbType.String, Convert.ToString(request.AssortClientManager2Name));
                     DASHDB.AddInParameter(DbCommand, "AssortClientManagerUniqueCode", DbType.String, Convert.ToString(request.AssortClientManagerUniqueCode));
                     DASHDB.AddInParameter(DbCommand, "Relationship_Password", DbType.String, Convert.ToString(request.Relationship_Password));
-                    DASHDB.AddInParameter(DbCommand, "Assort_department", DbType.String, Convert.ToString(request.Assort_department));
+                    //DASHDB.AddInParameter(DbCommand, "Assort_department", DbType.String, Convert.ToString(request.Assort_department));
                     DSet = DASHDB.ExecuteDataSet(DbCommand);
 
                 }

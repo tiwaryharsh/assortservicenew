@@ -656,7 +656,7 @@ namespace ServiceBusinessLayer
 
 
                                          ClientagrementUrl = (dr["ClientagrementUrl"] is DBNull) ? string.Empty : Convert.ToString(dr["ClientagrementUrl"]).Trim(),
-                                         isActive = (dr["isActive"] is DBNull) ? string.Empty : Convert.ToString(dr["isActive"]).Trim()
+                                       //  isActive = (dr["isActive"] is DBNull) ? string.Empty : Convert.ToString(dr["isActive"]).Trim()
 
                                      }).ToList();
 
@@ -2513,7 +2513,6 @@ namespace ServiceBusinessLayer
                                        Job_Type = (dr["Job_Type"] is DBNull) ? string.Empty : Convert.ToString(dr["Job_Type"]).Trim(),
                                        CompanyName = (dr["Name"] is DBNull) ? string.Empty : Convert.ToString(dr["Name"]).Trim(),
                                        Job_Location = (dr["Job_Location"] is DBNull) ? string.Empty : Convert.ToString(dr["Job_Location"]).Trim(),
-                                       SkillList = (dr["Job_Skill"] is DBNull) ? string.Empty : Convert.ToString(dr["Job_Skill"]).Trim(),
                                        CompanyID = (dr["CompanyID"] is DBNull) ? string.Empty : Convert.ToString(dr["CompanyID"]).Trim(),
                                        IsDelete = (dr["IsDelete"] is DBNull) ? string.Empty : Convert.ToString(dr["IsDelete"]).Trim()
 
