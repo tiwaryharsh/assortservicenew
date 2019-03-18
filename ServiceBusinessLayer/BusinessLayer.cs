@@ -307,7 +307,7 @@ namespace ServiceBusinessLayer
                                            IssueCreateTime = (dr["IssueCreateTime"] is DBNull) ? string.Empty : Convert.ToString(dr["IssueCreateTime"]).Trim(),
                                            EventType = (dr["EventType"] is DBNull) ? string.Empty : Convert.ToString(dr["EventType"]).Trim(),
                                            ClientEmail = (dr["IssueFrom"] is DBNull) ? string.Empty : Convert.ToString(dr["IssueFrom"]).Trim(),
-                                           EmailID = (dr["EmailMessageID"] is DBNull) ? string.Empty : Convert.ToString(dr["EmailMessageID"]).Trim(),
+                                          // EmailID = (dr["EmailMessageID"] is DBNull) ? string.Empty : Convert.ToString(dr["EmailMessageID"]).Trim(),
 
 
                                        }).ToList();
@@ -349,7 +349,7 @@ namespace ServiceBusinessLayer
                                            IssueCreateTime = (dr["IssueCreateTime"] is DBNull) ? string.Empty : Convert.ToString(dr["IssueCreateTime"]).Trim(),
                                            EventType = (dr["EventType"] is DBNull) ? string.Empty : Convert.ToString(dr["EventType"]).Trim(),
                                            ClientEmail = (dr["IssueFrom"] is DBNull) ? string.Empty : Convert.ToString(dr["IssueFrom"]).Trim(),
-                                           EmailID = (dr["EmailMessageID"] is DBNull) ? string.Empty : Convert.ToString(dr["EmailMessageID"]).Trim(),
+                                          // EmailID = (dr["EmailMessageID"] is DBNull) ? string.Empty : Convert.ToString(dr["EmailMessageID"]).Trim(),
 
 
                                        }).ToList();
@@ -392,7 +392,7 @@ namespace ServiceBusinessLayer
                                            IssueCreateTime = (dr["IssueCreateTime"] is DBNull) ? string.Empty : Convert.ToString(dr["IssueCreateTime"]).Trim(),
                                            EventType = (dr["EventType"] is DBNull) ? string.Empty : Convert.ToString(dr["EventType"]).Trim(),
                                            ClientEmail = (dr["IssueFrom"] is DBNull) ? string.Empty : Convert.ToString(dr["IssueFrom"]).Trim(),
-                                           EmailID = (dr["EmailMessageID"] is DBNull) ? string.Empty : Convert.ToString(dr["EmailMessageID"]).Trim(),
+                                           //EmailID = (dr["EmailMessageID"] is DBNull) ? string.Empty : Convert.ToString(dr["EmailMessageID"]).Trim(),
 
 
                                        }).ToList();
@@ -472,7 +472,7 @@ namespace ServiceBusinessLayer
                                            ClientEmail = (dr["IssueFrom"] is DBNull) ? string.Empty : Convert.ToString(dr["IssueFrom"]).Trim(),
                                            RMName = (dr["RMName"] is DBNull) ? string.Empty : Convert.ToString(dr["RMName"]).Trim(),
                                            RMUniqueID = (dr["RMUiqueID"] is DBNull) ? string.Empty : Convert.ToString(dr["RMUiqueID"]).Trim(),
-                                           EmailID = (dr["EmailMessageID"] is DBNull) ? string.Empty : Convert.ToString(dr["EmailMessageID"]).Trim(),
+                                          // EmailID = (dr["EmailMessageID"] is DBNull) ? string.Empty : Convert.ToString(dr["EmailMessageID"]).Trim(),
 
 
                                        }).ToList();
@@ -600,6 +600,76 @@ namespace ServiceBusinessLayer
 
             return getClientList;
         }
+
+        public Response<string> addClientDashboard(addClientDash request)
+        {
+
+
+            Response<string> response = new Response<string>();
+            DataSet DSet = new DataSet();
+            DataAccessLayer dataAcessLayer = new DataAccessLayer();
+            try
+            {
+
+                DSet = dataAcessLayer.addClientDash(request);
+                GlobalValidation obj_Global = new GlobalValidation();
+                obj_Global.validateDBResponse(DSet, 1, 0);
+                response.ResponseCode = obj_Global.ResponseCode;
+                response.ResponseMessage = obj_Global.ResponseMessage;
+                if (obj_Global.Success == false)
+                {
+                    response.Status = "Failure";
+                }
+                else
+                {
+                    response.Status = "Success";
+                    if (DSet.Tables[0].Rows.Count > 0)
+                    {
+                        response.Result = Convert.ToString(DSet.Tables[0].Rows[0][1].ToString());
+
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+
+            }
+            return response;
+
+        }
+
+        public List<addClientDash> GetClientDashList(string ClientID)
+        {
+
+
+            DataSet Dset = new DataSet();
+            List<addClientDash> IssueList = new List<addClientDash>();
+            addClientDash response = new addClientDash();
+            try
+            {
+
+                DataAccessLayer dataAcessLayer = new DataAccessLayer();
+
+                DataTable DSet = dataAcessLayer.GetClientDashList(ClientID);
+                GlobalValidation obj_Global = new GlobalValidation();
+                if (DSet.Rows.Count > 0)
+                {
+                    IssueList = (from DataRow dr in DSet.Rows
+                                 select new addClientDash
+                                 {
+                                     ClientID = (dr["ClientID"] is DBNull) ? string.Empty : Convert.ToString(dr["ClientID"]).Trim(),
+                                     ClientDash = (dr["ClientDash"] is DBNull) ? string.Empty : Convert.ToString(dr["ClientDash"]).Trim()
+
+                                 }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return IssueList;
+        }
+
         public List<AddClient> GetBusinessClientList(string ClientID)
         {
             DataSet Dset = new DataSet();
@@ -1867,6 +1937,154 @@ namespace ServiceBusinessLayer
             return response;
         }
 
+        public List<newsAndMedia> GetnewsAndMedia()
+        {
+            DataSet Dset = new DataSet();
+            List<newsAndMedia> getNewsList = new List<newsAndMedia>();
+            newsAndMedia response = new newsAndMedia();
+            DataAccessLayer dataAcessLayer = new DataAccessLayer();
+            try
+            {
+
+                DataTable dt_userList = dataAcessLayer.GetnewsAndMedia();
+                if (dt_userList.Rows.Count > 0)
+                {
+                    getNewsList = (from DataRow dr in dt_userList.Rows
+                                   select new newsAndMedia
+
+                                   {
+                                       newsDate = (dr["newsDate"] is DBNull) ? string.Empty : Convert.ToString(dr["newsDate"]).Trim(),
+                                       newsHeading = (dr["newsHeading"] is DBNull) ? string.Empty : Convert.ToString(dr["newsHeading"]).Trim(),
+                                       newsDisc = (dr["newsDisc"] is DBNull) ? string.Empty : Convert.ToString(dr["newsDisc"]).Trim(),
+                                       newsID = (dr["newsID"] is DBNull) ? string.Empty : Convert.ToString(dr["newsID"]).Trim(),
+                                       newsImage = (dr["newsImage"] is DBNull) ? string.Empty : Convert.ToString(dr["newsImage"]).Trim()
+
+                                   }).ToList();
+
+                }
+                return getNewsList;
+
+
+            }
+            catch (Exception EX)
+            {
+
+            }
+
+            return getNewsList;
+        }
+        public List<Blogs> GetBlogs()
+        {
+            DataSet Dset = new DataSet();
+            List<Blogs> getBlogList = new List<Blogs>();
+            Blogs response = new Blogs();
+            DataAccessLayer dataAcessLayer = new DataAccessLayer();
+            try
+            {
+
+                DataTable dt_userList = dataAcessLayer.GetBlogs();
+                if (dt_userList.Rows.Count > 0)
+                {
+                    getBlogList = (from DataRow dr in dt_userList.Rows
+                                   select new Blogs
+
+                                   {
+                                       blogDisc = (dr["blogDisc"] is DBNull) ? string.Empty : Convert.ToString(dr["blogDisc"]).Trim(),
+                                       blogHeading = (dr["blogHeading"] is DBNull) ? string.Empty : Convert.ToString(dr["blogHeading"]).Trim(),
+                                       blogID = (dr["blogID"] is DBNull) ? string.Empty : Convert.ToString(dr["blogID"]).Trim(),
+                                       blogImage = (dr["blogImage"] is DBNull) ? string.Empty : Convert.ToString(dr["blogImage"]).Trim(),
+                                       blogPublishDate = (dr["blogPublishDate"] is DBNull) ? string.Empty : Convert.ToString(dr["blogPublishDate"]).Trim(),
+                                       blogShortDisc = (dr["blogShortDisc"] is DBNull) ? string.Empty : Convert.ToString(dr["blogShortDisc"]).Trim()
+
+                                   }).ToList();
+
+                }
+                return getBlogList;
+
+
+            }
+            catch (Exception EX)
+            {
+
+            }
+
+            return getBlogList;
+        }
+
+        public Response<string> newsAndMediaPost(newsAndMedia request)
+        {
+
+
+
+            Response<string> response = new Response<string>();
+            DataSet DSet = new DataSet();
+            DataAccessLayer dataAcessLayer = new DataAccessLayer();
+            try
+            {
+
+                DSet = dataAcessLayer.newsAndMediaPost(request);
+                GlobalValidation obj_Global = new GlobalValidation();
+                obj_Global.validateDBResponse(DSet, 1, 0);
+                response.ResponseCode = obj_Global.ResponseCode;
+                response.ResponseMessage = obj_Global.ResponseMessage;
+                if (obj_Global.Success == false)
+                {
+                    response.Status = "Failure";
+                }
+                else
+                {
+                    response.Status = "Success";
+                    if (DSet.Tables[0].Rows.Count > 0)
+                    {
+                        response.Result = Convert.ToString(DSet.Tables[0].Rows[0][1].ToString());
+
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+
+            }
+            return response;
+        }
+
+        public Response<string> blogPost(Blogs request)
+        {
+
+
+
+            Response<string> response = new Response<string>();
+            DataSet DSet = new DataSet();
+            DataAccessLayer dataAcessLayer = new DataAccessLayer();
+            try
+            {
+
+                DSet = dataAcessLayer.blogPost(request);
+                GlobalValidation obj_Global = new GlobalValidation();
+                obj_Global.validateDBResponse(DSet, 1, 0);
+                response.ResponseCode = obj_Global.ResponseCode;
+                response.ResponseMessage = obj_Global.ResponseMessage;
+                if (obj_Global.Success == false)
+                {
+                    response.Status = "Failure";
+                }
+                else
+                {
+                    response.Status = "Success";
+                    if (DSet.Tables[0].Rows.Count > 0)
+                    {
+                        response.Result = Convert.ToString(DSet.Tables[0].Rows[0][1].ToString());
+
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+
+            }
+            return response;
+        }
+
 
         public Response<string> AddOtherDetails(AddOtherDetails request)
         {
@@ -1977,6 +2195,76 @@ namespace ServiceBusinessLayer
             }
             return response;
         }
+
+        public Response<string> deleteBlog(string BLOGID)
+        {
+            Response<string> response = new Response<string>();
+            DataSet DSet = new DataSet();
+            DataAccessLayer dataAcessLayer = new DataAccessLayer();
+            try
+            {
+
+                DSet = dataAcessLayer.deleteBlog(BLOGID);
+                GlobalValidation obj_Global = new GlobalValidation();
+                obj_Global.validateDBResponse(DSet, 1, 0);
+                response.ResponseCode = obj_Global.ResponseCode;
+                response.ResponseMessage = obj_Global.ResponseMessage;
+                if (obj_Global.Success == false)
+                {
+                    response.Status = "Failure";
+                }
+                else
+                {
+                    response.Status = "Success";
+                    if (DSet.Tables[0].Rows.Count > 0)
+                    {
+                        response.Result = Convert.ToString(DSet.Tables[0].Rows[0][1].ToString());
+
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+
+            }
+            return response;
+        }
+
+
+        public Response<string> deleteNews(string NEWSID)
+        {
+            Response<string> response = new Response<string>();
+            DataSet DSet = new DataSet();
+            DataAccessLayer dataAcessLayer = new DataAccessLayer();
+            try
+            {
+
+                DSet = dataAcessLayer.deleteNews(NEWSID);
+                GlobalValidation obj_Global = new GlobalValidation();
+                obj_Global.validateDBResponse(DSet, 1, 0);
+                response.ResponseCode = obj_Global.ResponseCode;
+                response.ResponseMessage = obj_Global.ResponseMessage;
+                if (obj_Global.Success == false)
+                {
+                    response.Status = "Failure";
+                }
+                else
+                {
+                    response.Status = "Success";
+                    if (DSet.Tables[0].Rows.Count > 0)
+                    {
+                        response.Result = Convert.ToString(DSet.Tables[0].Rows[0][1].ToString());
+
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+
+            }
+            return response;
+        }
+
         public Response<string> AddCompanyBuisiness(AddCompany request)
         {
 

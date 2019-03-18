@@ -712,6 +712,58 @@ namespace Service
             return response;
         }
 
+        public Response<string> addClientDashboard(addClientDash request)
+        {
+            Response<string> response = new Response<string>();
+
+            try
+            {
+                int x = Globals.GlobalClientCode;
+                DateTime dateTime = DateTime.UtcNow.Date;
+                if (dateTime.ToString("yyyy|MM|dd") != Convert.ToString(Globals.GlobalCurrentDate))
+                {
+                    Globals.SetGlobalDate(dateTime.ToString("MMyyyy"));
+                }
+                string UniqueString = Convert.ToString(Globals.GlobalCurrentDate) + Convert.ToString(x);
+
+
+
+                businessLayer businessLayer = new businessLayer();
+                response = businessLayer.addClientDashboard(request);
+                if (response.ResponseCode == 3)
+                {
+                    Globals.SetGlobalClientCode(x + 1);
+                    addClientDashboard(request);
+                }
+                else
+                {
+                    if (response.ResponseCode == 0)
+                    {
+                        Globals.SetGlobalClientCode(x + 1);
+
+                    }
+                }
+
+            }
+            catch (Exception EX)
+            {
+                response = new Response<string>();
+                response.ResponseCode = 1;
+                response.Status = "Error";
+                response.ResponseMessage = EX.Message;
+            }
+            return response;
+        }
+
+        public List<addClientDash> GetClientDashListDVal1(string ClientID)
+        {
+            List<addClientDash> objResponse = new List<addClientDash>();
+            businessLayer businessLayer = new businessLayer();
+            objResponse = businessLayer.GetClientDashList(ClientID);
+
+            return objResponse;
+        }
+
         public Response<List<AddClient>> GetclientList(string ClientID)
         {
 
@@ -1054,6 +1106,158 @@ namespace Service
                 response.Status = "Error";
                 response.ResponseMessage = EX.Message;
             }
+            return response;
+        }
+
+        public Response<string> newsAndMediaPost(newsAndMedia request)
+        {
+            Response<string> response = new Response<string>();
+
+            try
+            {
+                int x = Globals.GlobalClientCode;
+                DateTime dateTime = DateTime.UtcNow.Date;
+                if (dateTime.ToString("yyyy|MM|dd") != Convert.ToString(Globals.GlobalCurrentDate))
+                {
+                    Globals.SetGlobalDate(dateTime.ToString("MMyyyy"));
+                }
+                string UniqueString = Convert.ToString(Globals.GlobalCurrentDate) + Convert.ToString(x);
+
+
+
+                businessLayer businessLayer = new businessLayer();
+                response = businessLayer.newsAndMediaPost(request);
+                if (response.ResponseCode == 3)
+                {
+                    Globals.SetGlobalClientCode(x + 1);
+                    newsAndMediaPost(request);
+                }
+                else
+                {
+                    if (response.ResponseCode == 0)
+                    {
+                        Globals.SetGlobalClientCode(x + 1);
+
+                    }
+                }
+
+            }
+            catch (Exception EX)
+            {
+                response = new Response<string>();
+                response.ResponseCode = 1;
+                response.Status = "Error";
+                response.ResponseMessage = EX.Message;
+            }
+            return response;
+        }
+
+        public Response<string> blogPost(Blogs request)
+        {
+            Response<string> response = new Response<string>();
+
+            try
+            {
+
+
+                businessLayer businessLayer = new businessLayer();
+                response = businessLayer.blogPost(request);
+                if (response.ResponseCode == 3)
+                {
+
+
+                    blogPost(request);
+                }
+                else
+                {
+                    if (response.ResponseCode == 0)
+                    {
+
+                    }
+                }
+
+            }
+            catch (Exception EX)
+            {
+                response = new Response<string>();
+                response.ResponseCode = 1;
+                response.Status = "Error";
+                response.ResponseMessage = EX.Message;
+            }
+            return response;
+        }
+
+        public Response<List<newsAndMedia>> GetnewsAndMedia()
+        {
+
+            Response<List<newsAndMedia>> response = new Response<List<newsAndMedia>>();
+            List<newsAndMedia> NewsList = new List<newsAndMedia>();
+            try
+            {
+                businessLayer businessLayer = new businessLayer();
+                NewsList = businessLayer.GetnewsAndMedia();
+                response.Result = NewsList;
+                if (NewsList != null)
+                {
+
+                    response.ResponseCode = 0;
+                    response.Status = "News And Media Fetched Successfully";
+                    response.ResponseMessage = "Success";
+
+                }
+                else
+                {
+                    response.ResponseCode = 1;
+                    response.Status = "Faliure";
+                    response.ResponseMessage = "News And Media details not available";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                response = new Response<List<newsAndMedia>>();
+                response.ResponseCode = 1;
+                response.Status = "Error";
+                response.ResponseMessage = ex.Message;
+            }
+
+            return response;
+        }
+
+        public Response<List<Blogs>> GetBlogs()
+        {
+
+            Response<List<Blogs>> response = new Response<List<Blogs>>();
+            List<Blogs> BlogList = new List<Blogs>();
+            try
+            {
+                businessLayer businessLayer = new businessLayer();
+                BlogList = businessLayer.GetBlogs();
+                response.Result = BlogList;
+                if (BlogList != null)
+                {
+
+                    response.ResponseCode = 0;
+                    response.Status = "Blog Fetched Successfully";
+                    response.ResponseMessage = "Success";
+
+                }
+                else
+                {
+                    response.ResponseCode = 1;
+                    response.Status = "Faliure";
+                    response.ResponseMessage = "Blog details not available";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                response = new Response<List<Blogs>>();
+                response.ResponseCode = 1;
+                response.Status = "Error";
+                response.ResponseMessage = ex.Message;
+            }
+
             return response;
         }
 
@@ -1726,6 +1930,76 @@ namespace Service
                     {
 
                         response.ResponseMessage = "Applied Job Successfully";
+                    }
+                }
+
+            }
+            catch (Exception EX)
+            {
+                response = new Response<string>();
+                response.ResponseCode = 1;
+                response.Status = "Error";
+                response.ResponseMessage = EX.Message;
+            }
+            return response;
+        }
+
+        public Response<string> deleteNews(string NEWSID)
+        {
+            Response<string> response = new Response<string>();
+
+            try
+            {
+
+
+                businessLayer businessLayer = new businessLayer();
+                response = businessLayer.deleteNews(NEWSID);
+                if (response.ResponseCode == 3)
+                {
+
+                    deleteRM(NEWSID);
+                }
+                else
+                {
+                    if (response.ResponseCode == 0)
+                    {
+
+                        response.ResponseMessage = "Deleted news Successfully";
+                    }
+                }
+
+            }
+            catch (Exception EX)
+            {
+                response = new Response<string>();
+                response.ResponseCode = 1;
+                response.Status = "Error";
+                response.ResponseMessage = EX.Message;
+            }
+            return response;
+        }
+
+        public Response<string> deleteBlog(string BLOGID)
+        {
+            Response<string> response = new Response<string>();
+
+            try
+            {
+
+
+                businessLayer businessLayer = new businessLayer();
+                response = businessLayer.deleteBlog(BLOGID);
+                if (response.ResponseCode == 3)
+                {
+
+                    deleteBlog(BLOGID);
+                }
+                else
+                {
+                    if (response.ResponseCode == 0)
+                    {
+
+                        response.ResponseMessage = "Deleted blog Successfully";
                     }
                 }
 
@@ -2825,7 +3099,7 @@ namespace Service
         }
         public bool sendEmail(string to, string subject, string body)
         {
-            using (var mail = new MailMessage("swatantramishra1@gmail.com", to))
+            using (var mail = new MailMessage("info@assortstaffing.com", to))
             {
 
                 mail.Subject = subject;
@@ -2835,7 +3109,7 @@ namespace Service
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("swatantramishra1@gmail.com", "Future@Presents");
+                smtp.Credentials = new NetworkCredential("info@assortstaffing.com", "Lz*zf893");
                 smtp.Port = 587;
                 smtp.Send(mail);
                 return true;

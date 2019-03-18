@@ -14,6 +14,8 @@
         public static readonly string SP_USERREGISTRATION = "SP_UserRegistration";
         public static readonly string SP_INSERTCLIENT = "SP_InsertClient";
         public static readonly string SP_FORGOTPASSWORD = "SP_ForgotPassword";
+        public static readonly string SP_CLIENTSDASHBOARD = "SP_ClientsDashboard";
+        public static readonly string SP_GETCLIENTDASHLIST = "SP_GetClientDashList";
         public static readonly string SP_INSERTRM = "SP_InsertRM";
         public static readonly string SP_USERPROFILEUPDATE = "SP_UserProfileUpdate";
         public static readonly string SP_ASSIGNUTOCLINET = "SP_AssignUToClinet";
@@ -64,6 +66,12 @@
         public static readonly string SP_GETCLIENTLIST = "SP_GetClientList";
         public static readonly string SP_GETJOBSLIST = "SP_GetJobsList";
         public static readonly string SP_GETDATAJOBLIKE = "SP_GetDatajobLike";
+        public static readonly string SP_NEWSANDMEDIAPOST = "SP_newsAndMediaPost";
+        public static readonly string SP_BLOGPOST = "SP_blogPost";
+        public static readonly string SP_DELETENEWS = "SP_DeleteNews";
+        public static readonly string SP_DELETEBLOG = "SP_DeleteBlog";
+        public static readonly string SP_GETNEWSANDMEDIA = "SP_GetnewsAndMedia";
+        public static readonly string SP_GETBLOGS = "SP_Getblogs";
         #endregion
 
 

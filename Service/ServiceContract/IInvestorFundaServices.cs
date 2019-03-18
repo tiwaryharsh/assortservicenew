@@ -171,6 +171,24 @@ namespace Service
         Response<string> AddRelationshipManager(AddRelationshipManager request);
 
         [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "newsAndMediaPost", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
+        Response<string> newsAndMediaPost(newsAndMedia request);
+
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "blogPost", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
+        Response<string> blogPost(Blogs request);
+
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "Getblogs", Method = "GET", ResponseFormat = WebMessageFormat.Json)]
+
+        Response<List<Blogs>> GetBlogs();
+
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetnewsAndMedia", Method = "GET", ResponseFormat = WebMessageFormat.Json)]
+
+        Response<List<newsAndMedia>> GetnewsAndMedia();
+
+        [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetclientList/{ClientID}", Method = "GET", ResponseFormat = WebMessageFormat.Json)]
 
         Response<List<AddClient>> GetclientList(string ClientID);
@@ -213,6 +231,11 @@ namespace Service
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetCardClient/{ClientID}", Method = "GET", ResponseFormat = WebMessageFormat.Json)]
 
         Response<List<AddCardClient>> GetCardClient(string ClientID);
+
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetClientDashListDVal1/{ClientID}", Method = "GET", ResponseFormat = WebMessageFormat.Json)]
+
+        List<addClientDash> GetClientDashListDVal1(string ClientID);
 
 
         [OperationContract]
@@ -263,6 +286,14 @@ namespace Service
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "deleteClient/{ID}", Method = "DELETE", ResponseFormat = WebMessageFormat.Json)]
         Response<string> deleteClient(string ID);
+
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "deleteNews/{NEWSID}", Method = "DELETE", ResponseFormat = WebMessageFormat.Json)]
+        Response<string> deleteNews(string NEWSID);
+
+        [OperationContract]
+        [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "deleteBlog/{BLOGID}", Method = "DELETE", ResponseFormat = WebMessageFormat.Json)]
+        Response<string> deleteBlog(string BLOGID);
 
         [OperationContract]
         [WebInvoke(BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "uploadCandidateList/{CandidateID}", Method = "POST", ResponseFormat = WebMessageFormat.Json)]

@@ -508,6 +508,57 @@ namespace ServiceDataAccessLayer
             }
             return DSet;
         }
+
+        public DataSet deleteNews(string newsID)
+        {
+            DataSet DSet = new DataSet();
+
+            try
+            {
+                DataTable DtRegistartion = new DataTable();
+
+                SqlDatabase DASHDB = new SqlDatabase(DBConnection.GetDBConnection());
+                using (DbCommand DbCommand = DASHDB.GetStoredProcCommand(DBConstants.SP_DELETENEWS))
+                {
+
+                    DASHDB.AddInParameter(DbCommand, "newsID", DbType.String, Convert.ToString(newsID));
+
+                    DSet = DASHDB.ExecuteDataSet(DbCommand);
+
+                }
+            }
+            catch (Exception EX)
+            {
+
+            }
+            return DSet;
+        }
+
+        public DataSet deleteBlog(string blogID)
+        {
+            DataSet DSet = new DataSet();
+
+            try
+            {
+                DataTable DtRegistartion = new DataTable();
+
+                SqlDatabase DASHDB = new SqlDatabase(DBConnection.GetDBConnection());
+                using (DbCommand DbCommand = DASHDB.GetStoredProcCommand(DBConstants.SP_DELETEBLOG))
+                {
+
+                    DASHDB.AddInParameter(DbCommand, "blogID", DbType.String, Convert.ToString(blogID));
+
+                    DSet = DASHDB.ExecuteDataSet(DbCommand);
+
+                }
+            }
+            catch (Exception EX)
+            {
+
+            }
+            return DSet;
+        }
+
         public DataSet AddCompanyDataAccess(AddCompany request)
         {
             DataSet DSet = new DataSet();
@@ -696,7 +747,111 @@ namespace ServiceDataAccessLayer
             return DSet;
         }
 
+        public DataSet newsAndMediaPost(newsAndMedia request)
+        {
+            DataSet DSet = new DataSet();
 
+            try
+            {
+                DataTable DtRegistartion = new DataTable();
+
+                SqlDatabase DASHDB = new SqlDatabase(DBConnection.GetDBConnection());
+                using (DbCommand DbCommand = DASHDB.GetStoredProcCommand(DBConstants.SP_NEWSANDMEDIAPOST))
+                {
+                    DASHDB.AddInParameter(DbCommand, "newsDate", DbType.String, Convert.ToString(request.newsDate));
+                    DASHDB.AddInParameter(DbCommand, "newsDisc", DbType.String, Convert.ToString(request.newsDisc));
+                    DASHDB.AddInParameter(DbCommand, "newsHeading", DbType.String, Convert.ToString(request.newsHeading));
+                    DASHDB.AddInParameter(DbCommand, "newsImage", DbType.String, Convert.ToString(request.newsImage));
+                    DASHDB.AddInParameter(DbCommand, "newsID", DbType.String, Convert.ToString(request.newsID));
+                    DSet = DASHDB.ExecuteDataSet(DbCommand);
+
+                }
+            }
+            catch (Exception EX)
+            {
+
+            }
+            return DSet;
+        }
+        public DataSet blogPost(Blogs request)
+        {
+            DataSet DSet = new DataSet();
+
+            try
+            {
+                DataTable DtRegistartion = new DataTable();
+
+                SqlDatabase DASHDB = new SqlDatabase(DBConnection.GetDBConnection());
+                using (DbCommand DbCommand = DASHDB.GetStoredProcCommand(DBConstants.SP_BLOGPOST))
+                {
+                    DASHDB.AddInParameter(DbCommand, "blogDisc", DbType.String, Convert.ToString(request.blogDisc));
+                    DASHDB.AddInParameter(DbCommand, "blogHeading", DbType.String, Convert.ToString(request.blogHeading));
+                    DASHDB.AddInParameter(DbCommand, "blogID", DbType.String, Convert.ToString(request.blogID));
+                    DASHDB.AddInParameter(DbCommand, "blogImage", DbType.String, Convert.ToString(request.blogImage));
+                    DASHDB.AddInParameter(DbCommand, "blogPublishDate", DbType.String, Convert.ToString(request.blogPublishDate));
+                    DASHDB.AddInParameter(DbCommand, "blogShortDisc", DbType.String, Convert.ToString(request.blogShortDisc));
+                    DSet = DASHDB.ExecuteDataSet(DbCommand);
+
+                }
+            }
+            catch (Exception EX)
+            {
+
+            }
+            return DSet;
+        }
+
+        public DataTable GetnewsAndMedia()
+        {
+
+            DataTable dt_UserList = new DataTable();
+            try
+            {
+                SqlDatabase DASHDB = new SqlDatabase(DBConnection.GetDBConnection());
+                SqlDatabase DB = new SqlDatabase(DBConnection.GetDBConnection());
+
+                using (DbCommand DbCommand = DASHDB.GetStoredProcCommand(DBConstants.SP_GETNEWSANDMEDIA))
+                {
+                    DataSet DSet = DB.ExecuteDataSet(DbCommand);
+                    if (DSet.Tables.Count > 0)
+                        dt_UserList = DSet.Tables[0];
+                    else
+                        return null;
+                }
+            }
+            catch (Exception EX)
+            {
+
+            }
+
+            return dt_UserList;
+        }
+
+        public DataTable GetBlogs()
+        {
+
+            DataTable dt_UserList = new DataTable();
+            try
+            {
+                SqlDatabase DASHDB = new SqlDatabase(DBConnection.GetDBConnection());
+                SqlDatabase DB = new SqlDatabase(DBConnection.GetDBConnection());
+
+                using (DbCommand DbCommand = DASHDB.GetStoredProcCommand(DBConstants.SP_GETBLOGS))
+                {
+                    DataSet DSet = DB.ExecuteDataSet(DbCommand);
+                    if (DSet.Tables.Count > 0)
+                        dt_UserList = DSet.Tables[0];
+                    else
+                        return null;
+                }
+            }
+            catch (Exception EX)
+            {
+
+            }
+
+            return dt_UserList;
+        }
 
         public DataSet ActDeactOperClient(string ClID, string Status)
         {
@@ -1684,6 +1839,59 @@ namespace ServiceDataAccessLayer
             return dt_UserList;
         }
 
+        public DataSet addClientDash(addClientDash request)
+        {
+            DataSet DSet = new DataSet();
+
+            try
+            {
+                DataTable DtRegistartion = new DataTable();
+
+                SqlDatabase DASHDB = new SqlDatabase(DBConnection.GetDBConnection());
+                using (DbCommand DbCommand = DASHDB.GetStoredProcCommand(DBConstants.SP_CLIENTSDASHBOARD))
+                {
+
+                    DASHDB.AddInParameter(DbCommand, "ClientID", DbType.String, Convert.ToString(request.ClientID));
+                    DASHDB.AddInParameter(DbCommand, "ClientDash", DbType.String, Convert.ToString(request.ClientDash));
+
+
+                    DSet = DASHDB.ExecuteDataSet(DbCommand);
+
+                }
+            }
+            catch (Exception EX)
+            {
+
+            }
+            return DSet;
+        }
+
+        public DataTable GetClientDashList(string ClientID)
+        {
+
+            DataTable dt_UserList = new DataTable();
+            try
+            {
+                SqlDatabase DASHDB = new SqlDatabase(DBConnection.GetDBConnection());
+                SqlDatabase DB = new SqlDatabase(DBConnection.GetDBConnection());
+
+                using (DbCommand DbCommand = DASHDB.GetStoredProcCommand(DBConstants.SP_GETCLIENTDASHLIST))
+                {
+                    DASHDB.AddInParameter(DbCommand, "ClientID", DbType.String, Convert.ToString(ClientID));
+                    DataSet DSet = DB.ExecuteDataSet(DbCommand);
+                    if (DSet.Tables.Count > 0)
+                        dt_UserList = DSet.Tables[0];
+                    else
+                        return null;
+                }
+            }
+            catch (Exception EX)
+            {
+
+            }
+
+            return dt_UserList;
+        }
 
         public DataTable GetRmEmailViaDep(string Dep)
         {

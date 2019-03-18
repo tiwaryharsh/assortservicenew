@@ -721,6 +721,16 @@ namespace ServiceDTO
 
         }
         [DataContract]
+        public class addClientDash
+        {
+            [DataMember]
+            public string ClientID { get; set; }
+            [DataMember]
+            public string ClientDash { get; set; }
+
+
+        }
+        [DataContract]
         public class AddCardClient
         {
 
@@ -1542,6 +1552,39 @@ namespace ServiceDTO
             [DataMember]
             public string CategoryID { get; set; }
 
+        }
+        [DataContract]
+        public class newsAndMedia
+        {
+            [DataMember]
+            public string newsID { get; set; }
+            [DataMember]
+            public string newsImage { get; set; }
+
+            [DataMember]
+            public string newsHeading { get; set; }
+            [DataMember]
+            public string newsDate { get; set; }
+            [DataMember]
+            public string newsDisc { get; set; }
+        }
+
+        [DataContract]
+        public class Blogs
+        {
+            [DataMember]
+            public string blogID { get; set; }
+            [DataMember]
+            public string blogImage { get; set; }
+
+            [DataMember]
+            public string blogHeading { get; set; }
+            [DataMember]
+            public string blogPublishDate { get; set; }
+            [DataMember]
+            public string blogDisc { get; set; }
+            [DataMember]
+            public string blogShortDisc { get; set; }
         }
 
         [DataContract]
