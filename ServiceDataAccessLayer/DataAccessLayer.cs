@@ -1058,7 +1058,7 @@ namespace ServiceDataAccessLayer
                     DASHDB.AddInParameter(DbCommand, "EventType", DbType.String, Convert.ToString(request.EventType));
                     DASHDB.AddInParameter(DbCommand, "ReciveDate", DbType.String, Convert.ToString(request.ReciveDate));
                     DASHDB.AddInParameter(DbCommand, "IssueFrom", DbType.String, Convert.ToString(request.ClientEmail));
-                    DASHDB.AddInParameter(DbCommand, "EmailMessageID", DbType.String, Convert.ToString(request.EmailID));
+                    //DASHDB.AddInParameter(DbCommand, "EmailMessageID", DbType.String, Convert.ToString(request.EmailID));
                     DSet = DASHDB.ExecuteDataSet(DbCommand);
                     if (DSet.Tables.Count > 0)
                     {

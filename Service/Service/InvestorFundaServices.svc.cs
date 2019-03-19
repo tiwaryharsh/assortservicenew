@@ -57,7 +57,7 @@ namespace Service
                 client.Connect("mail.assortstaffing.com", 110, false);
 
                 // Authenticate ourselves towards the server
-                client.Authenticate("info@assortstaffing.com", "user@1994$");
+                client.Authenticate("info@assortstaffing.com", "Lz*zf893");
 
                 // Get the number of messages in the inbox
                 int messageCount = client.GetMessageCount();
@@ -87,7 +87,7 @@ namespace Service
 
                 pop3.Connect("pop3.assortstaffing.com");  // or ConnectSSL for SSL
                 MessagePart plainText = Mss[0].FindFirstPlainTextVersion();
-                pop3.Login("info@assortstaffing.com", "user@1994$");
+                pop3.Login("info@assortstaffing.com", "Lz*zf893");
                 if (plainText != null)
                 {
                     // The message had a text/plain version - show that one
@@ -3106,7 +3106,7 @@ namespace Service
                 mail.Body = body;
                 mail.IsBodyHtml = false;
                 var smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
+                smtp.Host = "mail.assortstaffing.com";
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
                 smtp.Credentials = new NetworkCredential("info@assortstaffing.com", "Lz*zf893");
